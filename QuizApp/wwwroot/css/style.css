@@ -1,0 +1,899 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+body p {
+    font-size: 20px !important;
+}
+
+body h1,
+h2,
+h3,
+h5 {
+    font-weight: bold !important;
+}
+
+.Geo {
+    cursor: pointer;
+}
+
+.Know img {
+    width: 100px !important;
+    height: 40px !important;
+}
+
+#know-a {
+    text-decoration: none;
+}
+
+#home-icon img,
+#languageIcon {
+    width: 28px !important;
+    height: 28px !important;
+}
+
+#navbarBrand img {
+    width: 20px;
+    height: 20px;
+}
+
+.nav-item {
+    padding: 0px 16px;
+}
+
+
+#carouselExample {
+    height: 480px;
+}
+
+    #carouselExample img {
+        width: 100%;
+        height: 370px;
+    }
+
+.body-info {
+    height: 70vh !important;
+}
+
+.info {
+    text-align: center;
+}
+
+.carousel-indicators {
+    margin-left: 0 !important;
+    justify-content: flex-start !important;
+    margin-bottom: 0 !important;
+}
+
+    .carousel-indicators button {
+        min-width: 28px;
+        min-height: 8px;
+        background-color: rgb(90, 90, 90) !important;
+        border: none;
+    }
+
+        .carousel-indicators button.active {
+            background-color: rgb(90, 90, 90) !important;
+        }
+
+.circle {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    justify-items: center;
+    align-items: center;
+    margin: 36px 0;
+    text-align: center;
+}
+
+    .circle .circle-text {
+        font-size: 18px !important;
+        padding-top: 5px;
+    }
+
+#circle-back {
+    background-color: rgb(90, 90, 90);
+    color: white;
+    padding: 30px 0;
+    margin-top: 20px;
+}
+
+    #circle-back h1 {
+        letter-spacing: 3px;
+        text-align: center;
+    }
+
+#imgid img {
+    max-width: 140px;
+    max-height: 140px;
+    min-width: 96px;
+    min-height: 96px;
+    width: 12vw;
+    height: 12vw;
+    border-radius: 50% !important;
+}
+
+#cards img {
+    border-radius: 0 !important;
+    border: none !important;
+    min-height: 260px;
+}
+
+#slider img {
+    border-radius: 0 !important;
+}
+
+#cards h5 {
+    color: #ffffff;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    background-color: rgb(142, 212, 142);
+}
+
+.card {
+    border-radius: 0 !important;
+    border: none !important;
+    overflow: hidden;
+}
+
+.card-img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+    color: white;
+    text-align: left;
+}
+
+.card-img {
+    border-radius: 0 !important;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-img {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+#head-sport {
+    margin-bottom: 50px;
+}
+
+.navbar {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.topNavBar {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#home-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+#text {
+    margin: 60px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    #text p {
+        max-width: 600px;
+    }
+
+footer {
+    width: 100%;
+    background-color: rgb(90, 90, 90);
+    color: white;
+    padding: 20px 0;
+    flex: 1;
+}
+
+    footer p {
+        font-size: 15px !important;
+    }
+
+#copyrightIcon {
+    width: 18px;
+    height: 18px;
+}
+
+#submit {
+    background-color: rgb(90, 90, 90);
+    border: none !important;
+    border-radius: 0 !important;
+    transition: opacity 0.4s ease;
+}
+
+#email {
+    border-radius: 0 !important;
+}
+
+#submit:hover {
+    opacity: 0.9;
+}
+
+.text-back {
+    display: none !important;
+}
+
+.myForm {
+    display: flex;
+    margin: 120px 0;
+    text-align: center;
+}
+
+    .myForm p {
+        margin-bottom: 30px;
+    }
+
+#text-mob {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#text-in {
+    margin: 100px 0;
+    text-align: center !important;
+}
+
+    #text-in p {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+.circle-circle img {
+    cursor: pointer;
+}
+
+#information-page h5 {
+    padding-top: 40px;
+}
+
+#information-page h1 {
+    padding-bottom: 40px;
+    padding-top: 30px;
+}
+
+.circle-circle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+#facButton {
+    background-color: #3b5998;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 0 !important;
+}
+
+
+/* quiz spage */
+.card-img {
+    border-radius: 0 !important;
+    height: 260px;
+}
+
+.card-1 {
+    border: none !important;
+    border-radius: 0 !important;
+    color: #ffffff;
+}
+
+/* tests  */
+#tests {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+}
+
+    #tests .option {
+        width: 49%;
+        border: 2px solid #ddd;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 20px;
+    }
+
+        #tests .option:hover {
+            border-color: #555;
+        }
+
+        #tests .option img {
+            max-width: 100% !important;
+            height: 170px !important;
+            height: auto;
+        }
+
+#tests-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    max-height: 40px;
+}
+
+header a {
+    font-weight: 500 !important;
+    font-size: 20px !important;
+}
+
+#count-count {
+    white-space: nowrap;
+}
+
+strong {
+    font-size: 36px;
+    font-weight: 800 !important;
+}
+
+#count-count {
+    padding-left: 10px;
+}
+
+.QuizMainImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .QuizMainImg img {
+        height: 400px;
+        max-width: 700px;
+        margin-top: 10px;
+    }
+
+.QuizAnswerText {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.QuizAnswerText {
+    padding-top: 8px;
+    font-size: 20px;
+}
+
+#sizing-nav {
+    margin: 36px 0;
+}
+
+    #sizing-nav .active .page-link {
+        background-color: gray !important;
+        border-color: gray !important;
+        color: white !important;
+    }
+
+    #sizing-nav a {
+        color: #555 !important;
+    }
+
+.page-link:focus,
+.page-link:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.page-item .page-link {
+    border-radius: 0 !important;
+}
+
+#test-result {
+    margin-top: 20px;
+}
+
+#Gif {
+    max-width: 800px !important;
+    height: 500px;
+    display: block;
+    margin: 0 auto;
+}
+
+#Gif-p {
+    text-align: center !important;
+    padding: 20px 0;
+    margin: 0 auto !important;
+}
+
+.sport-facts,
+.info,
+#slider {
+    margin-top: 40px;
+}
+
+
+.QuizAnswerText {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.option img {
+    user-select: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.dot {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 40%;
+}
+
+.dots {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.indicator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 30px !important;
+}
+
+#myspan {
+    display: flex;
+    align-items: center;
+    padding-right: 28px;
+}
+
+.dot-green {
+    background-color: rgb(68, 231, 68);
+}
+
+.dot-red {
+    background-color: rgb(231, 68, 68);
+}
+
+.dot-yellow {
+    background-color: rgb(230, 216, 22);
+}
+
+#spectial {
+    max-width: 400px !important;
+    height: 400px;
+}
+
+#typeEmailX-2,
+#typePasswordX-2 {
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid rgb(90, 90, 90);
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#typeEmailX-2,
+#typePasswordX-2,
+#form1Example4,
+#close-login-form,
+#close-register-form,
+#email,
+#form1Example3:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+    #email.form-control {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+#submit-login, #register-login {
+    width: 100%;
+    background-color: #E2EAF7;
+    color: #2F5AA2;
+    border: none;
+    transition: opacity 0.3s ease;
+}
+
+#register-login {
+    color: #0000008C !important;
+    background-color: #EEEEEE !important;
+}
+
+#submit-login:hover {
+    opacity: 0.85;
+}
+
+#form1Example3, #form1Example4 {
+    border: 1px solid rgb(90, 90, 90);
+}
+
+    #form1Example3:checked {
+        background-color: rgb(90, 90, 90);
+        border: none;
+    }
+
+    #form1Example4:checked {
+        background-color: rgb(90, 90, 90);
+        border: none;
+    }
+
+#login-href {
+    margin-top: 10px;
+}
+
+    #login-href a {
+        text-decoration: none;
+        color: rgb(90, 90, 90);
+    }
+
+#login-form {
+    border-radius: 20px !important;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+#form1Example3, #form1Example4 {
+    margin-right: 6px;
+}
+
+#login-icons {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.form-control-lg {
+    padding-right: 45px;
+}
+
+#login-section {
+    color: rgb(90, 90, 90) !important;
+}
+
+    #login-section h3, #login-icons {
+        color: rgb(90, 90, 90) !important;
+    }
+
+#tab-login {
+    color: #2F5AA2;
+    background-color: #E2EAF7;
+}
+
+#tab-login1 {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#tab-register, #tab-register1 {
+    color: #0000008C;
+    background-color: #EEEEEE;
+}
+
+#login-header .nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+#login-header {
+    box-sizing: border-box !important;
+}
+
+    #login-header .nav-item {
+        margin: 0;
+        padding: 0;
+    }
+
+    #login-header .nav-link {
+        margin: 0;
+        border-radius: 0;
+        padding: 17px 29px 16px;
+    }
+
+#login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(54, 52, 52, 0.5);
+    z-index: 499;
+    display: none;
+    backdrop-filter: blur(5px);
+}
+
+body.locked {
+    pointer-events: none;
+    overflow: hidden;
+    user-select: none;
+}
+
+    body.locked #login-main-form, #register-main-form {
+        pointer-events: auto;
+    }
+
+#login-main-form, #register-main-form {
+    position: relative;
+    z-index: 500;
+}
+
+#login-main-form, #register-main-form {
+    position: absolute;
+    width: 522px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 500;
+    display: none;
+}
+
+#Known-logo {
+    font-family: "Courier Prime", serif;
+    text-decoration: none;
+    color: rgb(90, 90, 90) !important;
+    font-size: 34px;
+}
+
+.profile-card {
+    color: #0000008C;
+    background-color: #EEEEEE;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-pic i {
+    font-size: 86px;
+    color: rgb(90, 90, 90);
+    padding: 20px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-bottom: 15px;
+}
+
+.profile-header h3 {
+    margin: 10px 0 5px;
+    font-size: 20px;
+}
+
+.profile-info {
+    margin: 10px 0;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.profile-stats {
+    margin: 20px 0;
+}
+
+    .profile-stats div {
+        text-align: center;
+    }
+
+    .profile-stats h4 {
+        margin: 0;
+        font-size: 18px;
+    }
+
+.profile-btn {
+    background-color: #fff;
+    color: rgb(90, 90, 90);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+    .profile-btn:hover {
+        background-color: rgb(90, 90, 90);
+        color: #fff;
+    }
+
+#profil-back {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile-container {
+    width: 100%;
+    margin: 20px 0;
+}
+
+#logout-i {
+    font-size: 25px;
+    color: rgb(43, 41, 41) !important;
+}
+
+@media (max-width: 768px) {
+    #login-main-form, #register-main-form {
+        width: 100%;
+    }
+
+    #login-header .nav-link {
+        margin: 0;
+        border-radius: 0;
+        padding: 12px 18px 10px;
+    }
+
+    #login-header a {
+        font-size: 16px !important;
+    }
+
+    .carousel-item p {
+        display: none;
+    }
+
+    #carouselExample {
+        height: auto;
+    }
+
+        #carouselExample img {
+            height: 268px !important;
+            margin: 0;
+            max-width: 100%;
+        }
+
+    .carousel-indicators {
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+        .carousel-indicators button {
+            background-color: rgb(90, 90, 90) !important;
+        }
+
+    .topNavBar,
+    hr {
+        display: none;
+    }
+
+    .circle {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+    }
+
+    #text p {
+        max-width: 400px;
+    }
+
+    header ul {
+        text-align: center;
+    }
+
+    #slider h3 {
+        display: none;
+    }
+
+    .text-back {
+        display: block !important;
+        margin-top: 36px;
+    }
+
+    .card-1 img {
+        height: 280px !important;
+    }
+
+    #cards img {
+        min-height: 220px !important;
+    }
+
+    .QuizMainImg img {
+        height: 200px !important;
+    }
+
+    #Gif {
+        height: 247px;
+    }
+
+    #slider {
+        margin-top: 8px;
+    }
+
+    .sport-facts,
+    .info {
+        margin-top: 32px;
+    }
+
+
+    #tests .option img {
+        max-width: 130px !important;
+        height: 100px !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    header ul {
+        text-align: center;
+    }
+
+    #carouselExample {
+        height: auto;
+    }
+
+        #carouselExample img {
+            height: 280px;
+            max-width: 100%;
+        }
+
+    .topNavBar,
+    hr {
+        display: none;
+    }
+
+    #footer-hr {
+        display: block;
+    }
+
+    footer {
+        padding: 15px 0;
+    }
+
+    #cards img {
+        min-height: 200px;
+    }
+
+    .circle {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-1 img {
+        height: 154px;
+    }
+
+    .card-img {
+        height: 160px;
+    }
+
+    .QuizMainImg img {
+        height: 350px;
+        max-width: fit-content;
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,364 @@
+﻿@model QuizApp.Models.RegistrationViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = User.Identity.IsAuthenticated ? "_LayoutLoggedInPage" : "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="login-overlay"></div>
+
+    <!-- Login Form -->
+    <div class="container" id="login-main-form">
+        <div class="card shadow-2-strong" id="login-form">
+            <div class="card-body p-5 text-center">
+
+                <!-- Close Button (X) -->
+                <button id="close-login-form" class="btn-close" aria-label="Close"
+                        style="position: absolute; top: 10px; right: 10px;"></button>
+
+                <h3 class="mb-5">ავტორიზაცია</h3>
+
+                <!-- Username Input with Icon -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <div class="input-group">
+                        <input type="email" id="typeEmailX" placeholder="Username" class="form-control form-control-lg" />
+                        <div><i id="login-icons" class="fas fa-user"></i></div>
+                    </div>
+                </div>
+
+                <!-- Password Input with Icon -->
+                <div data-mdb-input-init class="form-outline mb-4">
+                    <div class="input-group">
+                        <input type="password" id="typePasswordX" placeholder="Password" class="form-control form-control-lg" />
+                        <span><i id="login-icons" class="fas fa-lock"></i></span>
+                    </div>
+                </div>
+
+                <!-- Checkbox -->
+                <div class="form-check d-flex justify-content-start mb-4">
+                    <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                    <label class="form-check-label" for="form1Example3"> პაროლის დამახსოვრება</label>
+                </div>
+
+                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" id="submit-login"
+                        type="submit">
+                    შესვლა
+                </button>
+
+                <div id="login-href">არ ხარ რეგისტრირებული? <a href="#">რეგისტრაცია</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Form -->
+    <form method="post" asp-action="Registration">
+        <div asp-validation-summary="ModelOnly"></div>
+        @if (ViewBag.Message != null)
+        {
+            <div class="form-group" style="color: green">@ViewBag.Message</div>
+        }
+
+        <div class="container" id="register-main-form">
+            <div class="card shadow-2-strong" id="login-form">
+                <div class="card-body p-5 text-center">
+
+                    <!-- Close Button (X) -->
+                    <button id="close-register-form" class="btn-close" aria-label="Close"
+                            style="position: absolute; top: 10px; right: 10px;"></button>
+
+                    <h3 class="mb-5">რეგისტრაცია</h3>
+
+                    <!-- Username Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Name" class="form-control form-control-lg" id="typeUsername" placeholder="Username" />
+                            <div><i id="login-icons" class="fas fa-user"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Email Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Email" class="form-control form-control-lg" id="typeEmail" placeholder="Email" />
+                            <i id="login-icons" class="fas fa-envelope"></i>
+                        </div>
+                    </div>
+
+                    <!-- Password Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Password" type="password" class="form-control form-control-lg" id="typePassword" placeholder="Password" />
+                            <span><i id="login-icons" class="fas fa-lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Repeat Password Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="ConfirmPassword" type="password" class="form-control form-control-lg" id="typeRepeatPassword" placeholder="Repeat Password" />
+                            <span><i id="login-icons" class="fas fa-lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Remove the terms checkbox -->
+                    <div class="form-check d-flex justify-content-start mb-4">
+                        <input asp-for="AgreeTerms" class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                        <label class="form-check-label" for="form1Example3"> ვეთანხმები წესებს</label>
+                    </div>
+
+                    <!-- Registration Button -->
+                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" id="register-login" type="submit">
+                        რეგისტრაცია
+                    </button>
+
+                    <!-- Login Link -->
+                    <div id="login-href">
+                        გაქვს ანგარიში? <a href="#">ავტორიზაცია</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="full-test">
+        <!-- Question 1 -->
+        <div id="test-test201">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი ქვეყანა</div>
+                <div id="count-count"><strong>1</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Wonders/high-resolution-golden-gate-bridge-photo-l.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test202')">
+                    <h6 class="QuizAnswerText">დიდი ბრიტანეთი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test202')">
+                    <h6 class="QuizAnswerText">ნიდერლანდები</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2 , 'test-test202')">
+                    <h6 class="QuizAnswerText">შვედეთი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test202')">
+                    <h6 class="QuizAnswerText">ირლანდია</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div id="test-test202" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი ქვეყანა</div>
+                <div id="count-count"><strong>2</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Wonders/pngtree-great-wall-of-china-picture-image_3187580.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test203')">
+                    <h6 class="QuizAnswerText">ლუქსემბურგი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test203')">
+                    <h6 class="QuizAnswerText">ლატვია</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test203')">
+                    <h6 class="QuizAnswerText">ჩინეთი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test203')">
+                    <h6 class="QuizAnswerText">მალტა</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div id="test-test203" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი ქვეყანა</div>
+                <div id="count-count"><strong>3</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Wonders/Machu-Picchu-Inca-ruins-iStock-1339071089.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test204')">
+                    <h6 class="QuizAnswerText">ნიდერლანდები</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test204')">
+                    <h6 class="QuizAnswerText">შვედეთი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test204')">
+                    <h6 class="QuizAnswerText">ვატიკანი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test204')">
+                    <h6 class="QuizAnswerText">პერუ</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div id="test-test204" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი ქვეყანა</div>
+                <div id="count-count"><strong>4</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images//Wonders/Roman Forum.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test205')">
+                    <h6 class="QuizAnswerText">იტალია</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test205')">
+                    <h6 class="QuizAnswerText">ლატვია</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test205')">
+                    <h6 class="QuizAnswerText">მონტენეგრო</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test205')">
+                    <h6 class="QuizAnswerText">შვედეთი</h6>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Question 5 -->
+        <div id="test-test205" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი ქვეყანა</div>
+                <div id="count-count"><strong>5</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Wonders/chateau de chambord.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test206')">
+                    <h6 class="QuizAnswerText">შვედეთი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test206')">
+                    <h6 class="QuizAnswerText">ხორვატია</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test206')">
+                    <h6 class="QuizAnswerText">ირლანდია</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test206')">
+                    <h6 class="QuizAnswerText">საფრანგეთი</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div id="test-test206" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი ქვეყანა</div>
+                <div id="count-count"><strong>6</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Wonders/Giza.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test207')">
+                    <h6 class="QuizAnswerText">ანდორა</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test207')">
+                    <h6 class="QuizAnswerText">ეგვიპტე</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test207')">
+                    <h6 class="QuizAnswerText">ნიდერლანდები</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test207')">
+                    <h6 class="QuizAnswerText">ბულგარეთი</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div id="test-test207" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი ქვეყანა</div>
+                <div id="count-count"><strong>7</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Wonders/Bali-featured-1244x700.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test208')">
+                    <h6 class="QuizAnswerText">უნგრეთი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test208')">
+                    <h6 class="QuizAnswerText">ინდონეზია</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test208')">
+                    <h6 class="QuizAnswerText">ისლანდია</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test208')">
+                    <h6 class="QuizAnswerText">ეგვიპტე</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div id="test-test208" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი ქვეყანა</div>
+                <div id="count-count"><strong>8</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images//Wonders/Pisa.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test209')">
+                    <h6 class="QuizAnswerText">ირლანდია</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test209')">
+                    <h6 class="QuizAnswerText">იტალია</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test209')">
+                    <h6 class="QuizAnswerText">ბოსნია და ჰერცეგოვინა</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test209')">
+                    <h6 class="QuizAnswerText">მოლდოვა</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div id="test-test209" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი ქვეყანა</div>
+                <div id="count-count"><strong>9</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Wonders/Neuschwanstein-Castle.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test210')">
+                    <h6 class="QuizAnswerText">შვედეთი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test210')">
+                    <h6 class="QuizAnswerText">სერბეთი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test210')">
+                    <h6 class="QuizAnswerText">დიდი ბრიტანეთი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test210')">
+                    <h6 class="QuizAnswerText">გერმანია</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div id="test-test210" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი ქვეყანა</div>
+                <div id="count-count"><strong>10</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Wonders/banaue-rice-terraces-in-philippines-during-sunset-niahz1c9tlgagcbo.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-result')">
+                    <h6 class="QuizAnswerText">ფილიპინები</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-result')">
+                    <h6 class="QuizAnswerText">კოსოვო</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-result')">
+                    <h6 class="QuizAnswerText">მონაკო</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-result')">
+                    <h6 class="QuizAnswerText">პოლონეთი</h6>
+                </div>
+            </div>
+        </div>
+
+        <div id="test-result" style="display: none;">
+        </div>
+    </div>
+
+</body>
+
+</html>

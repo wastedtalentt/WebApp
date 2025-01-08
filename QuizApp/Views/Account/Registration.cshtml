@@ -1,0 +1,335 @@
+﻿@model QuizApp.Models.RegistrationViewModel;
+
+@{
+    Layout = User.Identity.IsAuthenticated ? "_LayoutLoggedInPage" : "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="login-overlay"></div>
+
+    <form method="post" asp-action="Login">
+        <div asp-validation-summary="ModelOnly"></div>
+        @if (ViewBag.Message != null)
+        {
+            <div class="form-group" style="color: green">@ViewBag.Message</div>
+        }
+
+        <div class="container" id="login-main-form">
+            <div class="card shadow-2-strong" id="login-form">
+                <div class="card-body p-5 text-center">
+
+                    <!-- Close Button (X) -->
+                    <button id="close-login-form" class="btn-close" aria-label="Close"
+                            style="position: absolute; top: 10px; right: 10px;"></button>
+
+                    <h3 class="mb-5">ავტორიზაცია</h3>
+
+                    <!-- Username Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Name" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Username" />
+                            <div><i id="login-icons" class="fas fa-user"></i></div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <!-- Password Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Password" type="password" class="form-control form-control-lg" id="typePasswordX-2" placeholder="Password" />
+                            <span><i id="login-icons" class="fas fa-lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me Checkbox -->
+                    
+
+                    <!-- Login Button -->
+                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" id="submit-login" type="submit">
+                        შესვლა
+                    </button>
+
+                    <!-- Registration Link -->
+                    <div id="login-href">
+                        არ ხარ რეგისტრირებული? <a href="#">რეგისტრაცია</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Registration Form -->
+    <!-- Registration Form -->
+    <form method="post" asp-action="Registration">
+        <div asp-validation-summary="ModelOnly"></div>
+        @if (ViewBag.Message != null)
+        {
+            <div class="form-group" style="color: green">@ViewBag.Message</div>
+        }
+
+        <div class="container" id="register-main-form">
+            <div class="card shadow-2-strong" id="login-form">
+                <div class="card-body p-5 text-center">
+
+                    <!-- Close Button (X) -->
+                    <button id="close-register-form" class="btn-close" aria-label="Close"
+                            style="position: absolute; top: 10px; right: 10px;"></button>
+
+                    <h3 class="mb-5">რეგისტრაცია</h3>
+
+                 
+                    
+
+
+
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Name" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Username" />
+                            <div><i id="login-icons" class="fas fa-user"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Email Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Email" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Email" />
+                            <i id="login-icons" class="fas fa-envelope"></i>
+                        </div>
+                    </div>
+
+                    <!-- Password Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Password" type="password" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Password" />
+                            <span><i id="login-icons" class="fas fa-lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Repeat Password Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="ConfirmPassword" type="password" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Repeat Password" />
+                            <span><i id="login-icons" class="fas fa-lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Remove the terms checkbox -->
+                    <div class="form-check d-flex justify-content-start mb-4">
+                        <input asp-for="AgreeTerms" class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                        <label class="form-check-label" for="form1Example3"> ვეთანხმები წესებს</label>
+                    </div>
+
+                    <!-- Registration Button -->
+                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" id="register-login" type="submit">
+                        რეგისტრაცია
+                    </button>
+
+                    <!-- Login Link -->
+                    <div id="login-href">
+                        გაქვს ანგარიში? <a href="#">ავტორიზაცია</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+
+    <div class="container" id="slider">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+            <div class="carousel-inner" id="carousel-images">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>გაეცანი ცნობილი ავტომობილების ლოგოებს</h3>
+                            <br>
+                            <p>
+                                ქვიზში შეხვდები განსხვავებული სირთულის კითხვებს, იხილავ ცნობილი ავტომობილების ბრენდებსა და მათ უნიკალურ
+                                ლოგოებს.
+                            </p>
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"
+                                        aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"
+                                        aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"
+                                        aria-label="Slide 3"></button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="../images/home/car.jpeg" alt="car" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>რამდენად შეძლებ სხვადასხვა ქვეყნის დროშების გამოცნობას</h3>
+                            <br>
+                            <p>ქვიზში უნდა გამოიცნო ქვეყნები მათი დროშების ფერების, ფორმებისა და სიმბოლოების მიხედვით.</p>
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" aria-current="true"
+                                        aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" class="active"
+                                        aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"
+                                        aria-label="Slide 3"></button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="../images/home/flages.jpeg" alt="country" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>რამდენად კარგად იცნობ მოდის ინდუსტრიას</h3>
+                            <br>
+                            <p>შეაფასე შენი ცოდნა მოდის ინდუსტრიაში და აღმოაჩინე ცნობილი ბრენდები!</p>
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" aria-current="true"
+                                        aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"
+                                        aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" class="active"
+                                        aria-label="Slide 3"></button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="../images/home/clothe1.jpeg" alt="closes" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-back container" id="text-mob">
+        <br>
+        <br>
+        <h2>გაეცანი საინტერესო ფაქტებს</h2>
+        <p>შეასრულე ქვიზები და გაიგე რამდენად კარგად იცნობ ამა თუ იმ საკითხს.</p>
+    </div>
+
+    <div class="container" id="cards">
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 mb-3">
+                <div class="card">
+                    <a href="./tests.html">
+                        <img src="../images/home/cards-1.webp" class="card-img" alt="car logo">
+                        <div class="d-flex flex-column justify-content-end">
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 mb-3">
+                <div class="card">
+                    <a href="./tests8.html">
+                        <img src="../images/home/ufc.jpg" class="card-img" alt="ufc">
+                        <div class="d-flex flex-column justify-content-end">
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 mb-3">
+                <div class="card">
+                    <a href="./tests3.html">
+                        <img src="../images/home/soc media.webp" class="card-img" alt="closes">
+                        <div class="d-flex flex-column justify-content-end">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="text-in">
+            <h1>რას იხილავ ვებ-გვერდზე?</h1>
+            <h4>გაეცნობი საინტერესო ქვიზებს</h4>
+            <p>ვებ-გვერდი გთავაზობთ საინტერესო ამბებსა და ფაქტებს, რაც დაგეხმარებათ ახალი ცოდნის მიღებაში.</p>
+        </div>
+    </div>
+
+    <div id="circle-back">
+        <h1>კატეგორიები</h1>
+        <div class="container" id="imgid">
+            <div class="circle">
+                <div class="circle-circle">
+                    <div class="circle-img">
+                        <img src="../images/home/11.webp">
+                    </div>
+                    <div class="circle-text">მოგზაურობა</div>
+                </div>
+
+                <div class="circle-circle">
+                    <div class="circle-img">
+                        <img src="../images/home/2.jpeg">
+                    </div>
+                    <div class="circle-text">სპორტი</div>
+                </div>
+
+                <div class="circle-circle">
+                    <div class="circle-img">
+                        <img src="../images/home/7.webp">
+                    </div>
+                    <div class="circle-text">ხელოვნება</div>
+                </div>
+
+                <div class="circle-circle">
+                    <div class="circle-img">
+                        <img src="../images/home/3.webp">
+                    </div>
+                    <div class="circle-text">ფილმი</div>
+                </div>
+
+                <div class="circle-circle">
+                    <div class="circle-img">
+                        <img src="../images/home/1.jpeg">
+                    </div>
+                    <div class="circle-text">მუსიკა</div>
+                </div>
+
+                <div class="circle-circle">
+                    <div class="circle-img">
+                        <img src="../images/home/12.jpeg">
+                    </div>
+                    <div class="circle-text">ისტორია</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="myForm">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h2>ელ.ფოსტის მისამართი</h2>
+                    <p>მიიღეთ ინფორმაცია სიახლეების შესახებ</p>
+                    <form onsubmit="return handleFormSubmit(event)">
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="შეიყვანეთ თქვენი ელ.ფოსტა"
+                                   required>
+                        </div>
+                        <button id="submit" class="btn btn-primary w-100">დადასტურება</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

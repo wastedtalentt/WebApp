@@ -1,0 +1,333 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="icon" href="./images/fun-fact (1).png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+
+    <meta property="og:title" content="Known.ge" />
+    <meta property="og:description" content="შეასრულე ქვიზები" />
+    <meta property="og:image" content="https://known.ge/images/home/car.jpeg" />
+    <meta property="og:url" content="https://known.ge/tests.html" />
+    <meta property="og:type" content="website" />
+</head>
+
+<body>
+
+    <div class="topNavBar container">
+        <div id="home-icon">
+            <a class="nav-link" href="/Home/Index">
+                <img src="../images/home/home.png" alt="Home">
+            </a>
+        </div>
+        <a class="nav-link" href="/Home/Index" id="know-a">
+            <div class="Know">
+                <img src="../images/sa (2).png" alt="Know">
+            </div>
+        </a>
+
+        <div class="Geo">
+
+            <a class="nav-link" href="/Home/Index">
+                ქარ
+                <img id="languageIcon" src="../images/home/languageIcon.png" alt="Language Icon" style="height: 30px;">
+            </a>
+        </div>
+
+    </div>
+
+
+
+
+
+    <header>
+        <hr>
+        <nav class="navbar navbar-expand-lg container" data-bs-theme="light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a href="/Home/Index" id="know-a">
+                    <div id="navbarBrand" class="d-block d-lg-block d-lg-none Know">
+                        <img src="../images/sa (2).png">
+                    </div>
+                </a>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Index">მთავარი</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Quiz">ქვიზები</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home/Information">ინფორმაცია</a>
+                        </li>
+                    </ul>
+                </div>
+        </nav>
+        <hr>
+    </header>
+
+    <div id="full-test">
+        <!-- Question 1 -->
+        <div id="test-test211">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი პლანეტა</div>
+                <div id="count-count"><strong>1</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Planets/m.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test212')">
+                    <h6 class="QuizAnswerText">იუპიტერი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test212')">
+                    <h6 class="QuizAnswerText">ვენერა</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2 , 'test-test212')">
+                    <h6 class="QuizAnswerText">დედამიწა</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test212')">
+                    <h6 class="QuizAnswerText">მერკური</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div id="test-test212" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი პლანეტა</div>
+                <div id="count-count"><strong>2</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Planets/ma.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test213')">
+                    <h6 class="QuizAnswerText">სატურნი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test213')">
+                    <h6 class="QuizAnswerText">ურანი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test213')">
+                    <h6 class="QuizAnswerText">მარსი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test213')">
+                    <h6 class="QuizAnswerText">ვენერა</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div id="test-test213" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი პლანეტა</div>
+                <div id="count-count"><strong>3</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Planets/ur.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test214')">
+                    <h6 class="QuizAnswerText">ურანი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test214')">
+                    <h6 class="QuizAnswerText">დედამიწა</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test214')">
+                    <h6 class="QuizAnswerText">იუპიტერი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test214')">
+                    <h6 class="QuizAnswerText">ვენერა</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div id="test-test214" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი პლანეტა</div>
+                <div id="count-count"><strong>4</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Planets/J.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test215')">
+                    <h6 class="QuizAnswerText">მარსი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test215')">
+                    <h6 class="QuizAnswerText">იუპიტერი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test215')">
+                    <h6 class="QuizAnswerText">ვენერა</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test215')">
+                    <h6 class="QuizAnswerText">ნეპტუნი</h6>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Question 5 -->
+        <div id="test-test215" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი პლანეტა</div>
+                <div id="count-count"><strong>5</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Planets/v.webp"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test216')">
+                    <h6 class="QuizAnswerText">დედამიწა</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test216')">
+                    <h6 class="QuizAnswerText">ურანი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test216')">
+                    <h6 class="QuizAnswerText">სატურნი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test216')">
+                    <h6 class="QuizAnswerText">ვენერა</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div id="test-test216" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი პლანეტა</div>
+                <div id="count-count"><strong>6</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Planets/s.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test217')">
+                    <h6 class="QuizAnswerText">მარსი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test217')">
+                    <h6 class="QuizAnswerText">სატურნი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test217')">
+                    <h6 class="QuizAnswerText">ნეპტუნი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test217')">
+                    <h6 class="QuizAnswerText">ურანი</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div id="test-test217" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი პლანეტა</div>
+                <div id="count-count"><strong>7</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Planets/ne.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test218')">
+                    <h6 class="QuizAnswerText">ნეპტუნი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test218')">
+                    <h6 class="QuizAnswerText">დედამიწა</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test218')">
+                    <h6 class="QuizAnswerText">ვენერა</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test218')">
+                    <h6 class="QuizAnswerText">იუპიტერი</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div id="test-test218" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი პლანეტა</div>
+                <div id="count-count"><strong>8</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Planets/11009_1280.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test219')">
+                    <h6 class="QuizAnswerText">ვენერა</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test219')">
+                    <h6 class="QuizAnswerText">დედამიწა</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test219')">
+                    <h6 class="QuizAnswerText">მარსი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test219')">
+                    <h6 class="QuizAnswerText">ნეპტუნი</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div id="test-test219" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი პლანეტა</div>
+                <div id="count-count"><strong>9</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Planets/eris.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test220')">
+                    <h6 class="QuizAnswerText">მერკური</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test220')">
+                    <h6 class="QuizAnswerText">ერისი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test220')">
+                    <h6 class="QuizAnswerText">ვენერა</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test220')">
+                    <h6 class="QuizAnswerText">დედამიწა</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div id="test-test220" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი პლანეტა</div>
+                <div id="count-count"><strong>10</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Planets/pl.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-result')">
+                    <h6 class="QuizAnswerText">პლუტონი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-result')">
+                    <h6 class="QuizAnswerText">ურანი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-result')">
+                    <h6 class="QuizAnswerText">ვენერა</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-result')">
+                    <h6 class="QuizAnswerText">იუპიტერი</h6>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div id="test-result" style="display: none;">
+        </div>
+    </div>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+    <script src="./app.js" defer></script>
+</body>
+
+</html>

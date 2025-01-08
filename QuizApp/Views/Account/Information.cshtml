@@ -1,0 +1,146 @@
+﻿@model QuizApp.Models.RegistrationViewModel;
+@{
+    Layout = User.Identity.IsAuthenticated ? "_LayoutLoggedInPage" : "_Layout";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+
+    <div id="login-overlay"></div>
+
+    <form method="post" asp-action="Login">
+        <div asp-validation-summary="ModelOnly"></div>
+        @if (ViewBag.Message != null)
+        {
+            <div class="form-group" style="color: green">@ViewBag.Message</div>
+        }
+
+        <div class="container" id="login-main-form">
+            <div class="card shadow-2-strong" id="login-form">
+                <div class="card-body p-5 text-center">
+
+                    <!-- Close Button (X) -->
+                    <button id="close-login-form" class="btn-close" aria-label="Close"
+                            style="position: absolute; top: 10px; right: 10px;"></button>
+
+                    <h3 class="mb-5">ავტორიზაცია</h3>
+
+                    <!-- Username Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Name" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Username" />
+                            <div><i id="login-icons" class="fas fa-user"></i></div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <!-- Password Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Password" type="password" class="form-control form-control-lg" id="typePasswordX-2" placeholder="Password" />
+                            <span><i id="login-icons" class="fas fa-lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me Checkbox -->
+                    <!-- Login Button -->
+                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" id="submit-login" type="submit">
+                        შესვლა
+                    </button>
+
+                    <!-- Registration Link -->
+                    <div id="login-href">
+                        არ ხარ რეგისტრირებული? <a href="#">რეგისტრაცია</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Registration Form -->
+    <!-- Registration Form -->
+    <form method="post" asp-action="Registration">
+        <div asp-validation-summary="ModelOnly"></div>
+        @if (ViewBag.Message != null)
+        {
+            <div class="form-group" style="color: green">@ViewBag.Message</div>
+        }
+
+        <div class="container" id="register-main-form">
+            <div class="card shadow-2-strong" id="login-form">
+                <div class="card-body p-5 text-center">
+
+                    <!-- Close Button (X) -->
+                    <button id="close-register-form" class="btn-close" aria-label="Close"
+                            style="position: absolute; top: 10px; right: 10px;"></button>
+
+                    <h3 class="mb-5">რეგისტრაცია</h3>
+
+
+
+
+
+
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Name" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Username" />
+                            <div><i id="login-icons" class="fas fa-user"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Email Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Email" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Email" />
+                            <i id="login-icons" class="fas fa-envelope"></i>
+                        </div>
+                    </div>
+
+                    <!-- Password Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Password" type="password" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Password" />
+                            <span><i id="login-icons" class="fas fa-lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Repeat Password Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="ConfirmPassword" type="password" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Repeat Password" />
+                            <span><i id="login-icons" class="fas fa-lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Remove the terms checkbox -->
+                    <div class="form-check d-flex justify-content-start mb-4">
+                        <input asp-for="AgreeTerms" class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                        <label class="form-check-label" for="form1Example3"> ვეთანხმები წესებს</label>
+                    </div>
+
+                    <!-- Registration Button -->
+                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" id="register-login" type="submit">
+                        რეგისტრაცია
+                    </button>
+
+                    <!-- Login Link -->
+                    <div id="login-href">
+                        გაქვს ანგარიში? <a href="#">ავტორიზაცია</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="body-info info">
+        <h4>გვერდი მალე დაემატება...</h4>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,438 @@
+﻿@model QuizApp.Models.RegistrationViewModel
+@{
+    Layout = User.Identity.IsAuthenticated ? "_LayoutLoggedInPage" : "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Facts</title>
+    <!-- Add your CSS links here (e.g., Bootstrap or custom CSS) -->
+</head>
+
+<body>
+    <div id="login-overlay"></div>
+
+    <form method="post" asp-action="Login">
+        <div asp-validation-summary="ModelOnly"></div>
+        @if (ViewBag.Message != null)
+        {
+            <div class="form-group" style="color: green">@ViewBag.Message</div>
+        }
+
+        <div class="container" id="login-main-form">
+            <div class="card shadow-2-strong" id="login-form">
+                <div class="card-body p-5 text-center">
+
+                    <!-- Close Button (X) -->
+                    <button id="close-login-form" class="btn-close" aria-label="Close"
+                            style="position: absolute; top: 10px; right: 10px;"></button>
+
+                    <h3 class="mb-5">ავტორიზაცია</h3>
+
+                    <!-- Username Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Name" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Username" />
+                            <div><i id="login-icons" class="fas fa-user"></i></div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <!-- Password Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Password" type="password" class="form-control form-control-lg" id="typePasswordX-2" placeholder="Password" />
+                            <span><i id="login-icons" class="fas fa-lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me Checkbox -->
+                    <!-- Login Button -->
+                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" id="submit-login" type="submit">
+                        შესვლა
+                    </button>
+
+                    <!-- Registration Link -->
+                    <div id="login-href">
+                        არ ხარ რეგისტრირებული? <a href="#">რეგისტრაცია</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Registration Form -->
+    <!-- Registration Form -->
+    <form method="post" asp-action="Registration">
+        <div asp-validation-summary="ModelOnly"></div>
+        @if (ViewBag.Message != null)
+        {
+            <div class="form-group" style="color: green">@ViewBag.Message</div>
+        }
+
+        <div class="container" id="register-main-form">
+            <div class="card shadow-2-strong" id="login-form">
+                <div class="card-body p-5 text-center">
+
+                    <!-- Close Button (X) -->
+                    <button id="close-register-form" class="btn-close" aria-label="Close"
+                            style="position: absolute; top: 10px; right: 10px;"></button>
+
+                    <h3 class="mb-5">რეგისტრაცია</h3>
+
+
+
+
+
+
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Name" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Username" />
+                            <div><i id="login-icons" class="fas fa-user"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Email Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Email" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Email" />
+                            <i id="login-icons" class="fas fa-envelope"></i>
+                        </div>
+                    </div>
+
+                    <!-- Password Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Password" type="password" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Password" />
+                            <span><i id="login-icons" class="fas fa-lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Repeat Password Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="ConfirmPassword" type="password" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Repeat Password" />
+                            <span><i id="login-icons" class="fas fa-lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Remove the terms checkbox -->
+                    <div class="form-check d-flex justify-content-start mb-4">
+                        <input asp-for="AgreeTerms" class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                        <label class="form-check-label" for="form1Example3"> ვეთანხმები წესებს</label>
+                    </div>
+
+                    <!-- Registration Button -->
+                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" id="register-login" type="submit">
+                        რეგისტრაცია
+                    </button>
+
+                    <!-- Login Link -->
+                    <div id="login-href">
+                        გაქვს ანგარიში? <a href="#">ავტორიზაცია</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+    <div class="container indicator">
+        <div class="dots dot-green"></div>
+        <span id="myspan">მარტივი</span>
+        <div class="dots dot-yellow"></div>
+        <span id="myspan">საშუალო</span>
+        <div class="dots dot-red"></div>
+        <span id="myspan">რთული</span>
+    </div>
+
+    <div class="container sport-facts">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/tests.html">
+                    <div class="card card-1">
+                        <img src="../images/home/cards-1.webp" class="card-img" alt="Car brands">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-green"></div>
+                            <h5 class="card-title">მანქანის ბრენდები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/tests7.html">
+                    <div class="card card-1">
+                        <img src="../images/countries/5.jpeg" class="card-img" alt="Statues">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-yellow"></div>
+                            <h5 class="card-title">ქანდაკებები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/tests2.html">
+                    <div class="card card-1">
+                        <img src="../images/home/flages.jpeg" class="card-img" alt="Flags">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-green"></div>
+                            <h5 class="card-title">დროშები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/tests4.html">
+                    <div class="card card-1">
+                        <img src="../images/home/clothes.webp" class="card-img" alt="Clothing logos">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-green"></div>
+                            <h5 class="card-title">ტანსაცმლის ლოგოები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/tests9.html">
+                    <div class="card card-1">
+                        <img src="../images/Universities/shutterstock_74412550.webp" class="card-img" alt="Universities">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-red"></div>
+                            <h5 class="card-title">უნივერსიტეტები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/tests5.html">
+                    <div class="card card-1">
+                        <img src="../images/home/html.jpeg" class="card-img" alt="Programming languages">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-green"></div>
+                            <h5 class="card-title">პროგრამირების ენები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/tests3.html">
+                    <div class="card card-1">
+                        <img src="../images/home/soc media.webp" class="card-img" alt="Social media logos">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-green"></div>
+                            <h5 class="card-title">სოც.ქსელების ლოგოები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/test35.html">
+                    <div class="card card-1">
+                        <img src="../images/home/map.webp" class="card-img" alt="Maps">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-yellow"></div>
+                            <h5 class="card-title">რუკები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/tests6.html">
+                    <div class="card card-1">
+                        <img src="../images/home/cities.jpeg" class="card-img" alt="Cities">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-green"></div>
+                            <h5 class="card-title">ქალაქები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/tests8.html">
+                    <div class="card card-1">
+                        <img src="../images/home/ufc.jpg" class="card-img" alt="UFC Fighters">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-green"></div>
+                            <h5 class="card-title">UFC-ის მებრძოლები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/test33.html">
+                    <div class="card card-1">
+                        <img src="../images/home/youtube.jpg" class="card-img" alt="YouTubers">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-red"></div>
+                            <h5 class="card-title">იუთუბერები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/test10.html">
+                    <div class="card card-1">
+                        <img src="../images/Tennis players/fr.jpeg" class="card-img" alt="Tennis players">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-yellow"></div>
+                            <h5 class="card-title">ჩოგბურთელები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/test30.html">
+                    <div class="card card-1">
+                        <img src="../images/home/football.jpg" class="card-img" alt="Football players">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-green"></div>
+                            <h5 class="card-title">ფეხბურთელები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/test34.html">
+                    <div class="card card-1">
+                        <img src="../images/stadium/10.jfif" class="card-img" alt="Stadiums">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-yellow"></div>
+                            <h5 class="card-title">სტადიონები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/tests11.html">
+                    <div class="card card-1">
+                        <img src="../images/Tv Series/5.jpg" class="card-img" alt="TV Series">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-green"></div>
+                            <h5 class="card-title">სერიალები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/tests12.html">
+                    <div class="card card-1">
+                        <img src="../images/movies/8.jpg" class="card-img" alt="Movies">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-green"></div>
+                            <h5 class="card-title">ფილმები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/test31.html">
+                    <div class="card card-1">
+                        <img src="../images/home/actors.jpg" class="card-img" alt="Actors">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-red"></div>
+                            <h5 class="card-title">მსახიობები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/test32.html">
+                    <div class="card card-1">
+                        <img src="../images/home/singers.jpg" class="card-img" alt="football">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-green">
+                            </div>
+                            <h5 class="card-title">მომღერლები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="@Url.Action("Quiz13", "Account")">
+                    <div class="card card-1">
+                        <img src="../images/Wonders/chateau de chambord.jpg" class="card-img" alt="football">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-yellow">
+                            </div>
+                            <h5 class="card-title">ადგილმდებარეობები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-md-3 mb-3">
+                <a href="../quizzes/tests16.html">
+                    <div class="card card-1">
+                        <img src="../images/Pistols/Cover.jpg" class="card-img" alt="football">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="dot dot-green">
+                            </div>
+                            <h5 class="card-title">იარაღები</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Pagination Section -->
+    <nav aria-label="Page navigation example" id="sizing-nav">
+        <ul class="pagination justify-content-center">
+            <!-- "Previous" Button -->
+            <li class="page-item disabled" id="prev-btn">
+                <a class="page-link" href="#" tabindex="-1">წინა</a>
+            </li>
+
+            <!-- Page 1 -->
+            <li class="page-item active" id="page-1">
+                <a class="page-link" href="@Url.Action("Quiz", "Home")">1</a>
+            </li>
+
+            <!-- Page 2 -->
+            <li class="page-item" id="page-2">
+                <a class="page-link" href="@Url.Action("Quiz1", "Home")">2</a>
+            </li>
+
+            <!-- "Next" Button -->
+            <li class="page-item" id="next-btn">
+                <a class="page-link" href="@Url.Action("Quiz1", "Home")">შემდეგი</a>
+            </li>
+        </ul>
+    </nav>
+
+
+
+</body>
+
+</html>
