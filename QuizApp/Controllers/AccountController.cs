@@ -74,6 +74,11 @@ namespace QuizApp.Controllers
         }
 
 
+        public IActionResult Quiz1()
+        {
+            return View();
+        }
+
         public IActionResult Quiz13()
         {
             return View();
