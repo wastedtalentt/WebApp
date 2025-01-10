@@ -1,0 +1,379 @@
+﻿@model QuizApp.Models.RegistrationViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = User.Identity.IsAuthenticated ? "_LayoutLoggedInPage" : "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="login-overlay"></div>
+
+    <form method="post" asp-action="Login">
+        <div asp-validation-summary="ModelOnly"></div>
+        @if (ViewBag.Message != null)
+        {
+            <div class="form-group" style="color: green">@ViewBag.Message</div>
+        }
+
+        <div class="container" id="login-main-form">
+            <div class="card shadow-2-strong" id="login-form">
+                <div class="card-body p-5 text-center">
+
+                    <!-- Close Button (X) -->
+                    <button id="close-login-form" class="btn-close" aria-label="Close"
+                            style="position: absolute; top: 10px; right: 10px;"></button>
+
+                    <h3 class="mb-5">ავტორიზაცია</h3>
+
+                    <!-- Username Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Name" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Username" />
+                            <div><i id="login-icons" class="fas fa-user"></i></div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <!-- Password Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Password" type="password" class="form-control form-control-lg" id="typePasswordX-2" placeholder="Password" />
+                            <span><i id="login-icons" class="fas fa-lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me Checkbox -->
+                    <!-- Login Button -->
+                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" id="submit-login" type="submit">
+                        შესვლა
+                    </button>
+
+                    <!-- Registration Link -->
+                    <div id="login-href">
+                        არ ხარ რეგისტრირებული? <a href="#">რეგისტრაცია</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Registration Form -->
+    <!-- Registration Form -->
+    <form method="post" asp-action="Registration">
+        <div asp-validation-summary="ModelOnly"></div>
+        @if (ViewBag.Message != null)
+        {
+            <div class="form-group" style="color: green">@ViewBag.Message</div>
+        }
+
+        <div class="container" id="register-main-form">
+            <div class="card shadow-2-strong" id="login-form">
+                <div class="card-body p-5 text-center">
+
+                    <!-- Close Button (X) -->
+                    <button id="close-register-form" class="btn-close" aria-label="Close"
+                            style="position: absolute; top: 10px; right: 10px;"></button>
+
+                    <h3 class="mb-5">რეგისტრაცია</h3>
+
+
+
+
+
+
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Name" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Username" />
+                            <div><i id="login-icons" class="fas fa-user"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Email Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Email" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Email" />
+                            <i id="login-icons" class="fas fa-envelope"></i>
+                        </div>
+                    </div>
+
+                    <!-- Password Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="Password" type="password" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Password" />
+                            <span><i id="login-icons" class="fas fa-lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Repeat Password Input with Icon -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input asp-for="ConfirmPassword" type="password" class="form-control form-control-lg" id="typeEmailX-2" placeholder="Repeat Password" />
+                            <span><i id="login-icons" class="fas fa-lock"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Remove the terms checkbox -->
+                    <div class="form-check d-flex justify-content-start mb-4">
+                        <input asp-for="AgreeTerms" class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                        <label class="form-check-label" for="form1Example3"> ვეთანხმები წესებს</label>
+                    </div>
+
+                    <!-- Registration Button -->
+                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block" id="register-login" type="submit">
+                        რეგისტრაცია
+                    </button>
+
+                    <!-- Login Link -->
+                    <div id="login-href">
+                        გაქვს ანგარიში? <a href="#">ავტორიზაცია</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div id="full-test">
+        <!-- Question 1 -->
+        <div id="test-test161">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი უნივერსიტეტი</div>
+                <div id="count-count"><strong>1</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Universities/1.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test162')">
+                    <h6 class="QuizAnswerText">კემბრიჯის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test162')">
+                    <h6 class="QuizAnswerText">ოქსფორდის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2 , 'test-test162')">
+                    <h6 class="QuizAnswerText">მასაჩუსეტის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test162')">
+                    <h6 class="QuizAnswerText">ჰარვარდის უნივერსიტეტი</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div id="test-test162" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი უნივერსიტეტი</div>
+                <div id="count-count"><strong>2</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Universities/OUImages_Oxford Skyline_HighRes_reduced.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test163')">
+                    <h6 class="QuizAnswerText">კალიფორნიის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test163')">
+                    <h6 class="QuizAnswerText">ოქსფორდის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test163')">
+                    <h6 class="QuizAnswerText">კოლუმბიის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test163')">
+                    <h6 class="QuizAnswerText">იელის უნივერსიტეტი</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div id="test-test163" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი უნივერსიტეტი</div>
+                <div id="count-count"><strong>3</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Universities/shutterstock_279456929.webp"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test164')">
+                    <h6 class="QuizAnswerText">იელის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test164')">
+                    <h6 class="QuizAnswerText">ვაშინგტონის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test164')">
+                    <h6 class="QuizAnswerText">ნიუ იორკის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test164')">
+                    <h6 class="QuizAnswerText">ჯონ ჰოპკინსის უნივერსიტეტი</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div id="test-test164" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი უნივერსიტეტი</div>
+                <div id="count-count"><strong>4</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Universities/33119408363_c78f2fb99d_b.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test165')">
+                    <h6 class="QuizAnswerText">სიდნეის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test165')">
+                    <h6 class="QuizAnswerText">პრინსტონის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test165')">
+                    <h6 class="QuizAnswerText">ჯონს ჰოპკინსის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test165')">
+                    <h6 class="QuizAnswerText">კარნეგი მელონის უნივერისტეტი</h6>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Question 5 -->
+        <div id="test-test165" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი უნივერსიტეტი</div>
+                <div id="count-count"><strong>5</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Universities/stand.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test166')">
+                    <h6 class="QuizAnswerText">კალიფორნიის უნივერისტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test166')">
+                    <h6 class="QuizAnswerText">ოქსფორდის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test166')">
+                    <h6 class="QuizAnswerText">სტენდფორდის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test166')">
+                    <h6 class="QuizAnswerText">იელის უნივერსიტეტი</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div id="test-test166" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი უნივერსიტეტი</div>
+                <div id="count-count"><strong>6</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Universities/Columbia-University-Student-Climate-Survey.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test167')">
+                    <h6 class="QuizAnswerText">კოლუმბიის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test167')">
+                    <h6 class="QuizAnswerText">ედინბურგის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test167')">
+                    <h6 class="QuizAnswerText">ბოსტონის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test167')">
+                    <h6 class="QuizAnswerText">რაისის უნივერსიტეტი</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div id="test-test167" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი უნივერსიტეტი</div>
+                <div id="count-count"><strong>7</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Universities/The-California-Institute-of-Technology-Caltech-has-claimed-the-1-spot-in-the-Times-Higher-Education-2023-ranking-of-the-best-small-universities-worldwide.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test168')">
+                    <h6 class="QuizAnswerText">ოქსფორდის უნივერისტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test168')">
+                    <h6 class="QuizAnswerText">რაისის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test168')">
+                    <h6 class="QuizAnswerText">კალიფორნიის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test168')">
+                    <h6 class="QuizAnswerText">პენსილვანიის უნივერსიტეტი</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div id="test-test168" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი უნივერსიტეტი</div>
+                <div id="count-count"><strong>8</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Universities/Downloader.la-637ed87fe8fc6.jpg"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test169')">
+                    <h6 class="QuizAnswerText">კოლუმბიის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test169')">
+                    <h6 class="QuizAnswerText">კალიფორნიის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test169')">
+                    <h6 class="QuizAnswerText">ოქსფორდის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test169')">
+                    <h6 class="QuizAnswerText">პენსილვანიის უნივერსიტეტი</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div id="test-test169" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი უნივერსიტეტი</div>
+                <div id="count-count"><strong>9</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Universities/shutterstock_74412550.webp"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-test170')">
+                    <h6 class="QuizAnswerText">ჯონ ჰოპკინსის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-test170')">
+                    <h6 class="QuizAnswerText">პენსილვანიის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-test170')">
+                    <h6 class="QuizAnswerText">კალიფორნიის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-test170')">
+                    <h6 class="QuizAnswerText">ბოსტონის უნივერსიტეტი</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div id="test-test170" style="display: none;">
+            <h2 class="container" id="tests-header">
+                <div>გამოიცანი უნივერსიტეტი</div>
+                <div id="count-count"><strong>10</strong> / 10</div>
+            </h2>
+            <div class="QuizMainImg"><img class="container" src="../images/Universities/university-michigan-law-school-library-ann-arbor-mi-usa-october-campuus-105907907.webp"></div>
+            <div class="container" id="tests">
+                <div class="option" onclick="checkAnswer(this, 0, 'test-result')">
+                    <h6 class="QuizAnswerText">ჰარვარდის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 1 , 'test-result')">
+                    <h6 class="QuizAnswerText">ოქსფორდის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 2, 'test-result')">
+                    <h6 class="QuizAnswerText">კოლუმბიის უნივერსიტეტი</h6>
+                </div>
+                <div class="option" onclick="checkAnswer(this, 3 , 'test-result')">
+                    <h6 class="QuizAnswerText">მიჩიგანის უნივერსიტეტი</h6>
+                </div>
+            </div>
+        </div>
+
+        <div id="test-result" style="display: none;">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -85,11 +85,95 @@ namespace QuizApp.Controllers
 
         public IActionResult Quiz3()
         {
-            return View("~/Views/Quizzes/Quiz3");
+            return View();
         }
 
-  
+        public IActionResult Quiz4()
+        {
+            return View();
+        }
+
+
+        public IActionResult Quiz5()
+        {
+            return View();
+        }
+
+        public IActionResult Quiz6()
+        {
+            return View();
+        }
+
+        public IActionResult Quiz7()
+        {
+            return View();
+        }
+
+        public IActionResult Quiz8()
+        {
+            return View();
+        }
+
+        public IActionResult Quiz9()
+        {
+            return View();
+        }
+
+        public IActionResult Quiz10()
+        {
+            return View();
+        }
+
+        public IActionResult Quiz11()
+        {
+            return View();
+        }
+
+        public IActionResult Quiz12()
+        {
+            return View();
+        }
+
         public IActionResult Quiz13()
+        {   
+            return View();                              //i stopped here
+        }   
+
+
+        public IActionResult Quiz14()
+        {
+            return View();      
+        }
+
+
+        public IActionResult Quiz15()
+        {
+            return View();
+        }
+
+        public IActionResult Quiz16()
+        {
+            return View();
+        }
+
+        public IActionResult Quiz17()
+        {
+            return View();
+        }
+
+
+        public IActionResult Quiz18()
+        {
+            return View();
+        }
+
+
+        public IActionResult Quiz19()
+        {
+            return View();
+        }
+
+        public IActionResult Quiz20()
         {
             return View();
         }
